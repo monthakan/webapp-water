@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='home.css') }}" >
+    <title>พยากรณ์น้ำท่วมพื้นที่จังหวัดศรีสะเกษ</title>
+</head>
+<body>
+    <center>
+        <div class="home">
+        <h2>พยากรณ์น้ำท่วมพื้นที่จังหวัดศรีสะเกษ</h2>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="function">
+                <label for="rain">ปริมาณน้ำฝน </label>
+                <br>
+                <input type="text" name="rain" placeholder="มิลลิเมตร" required="required" />
+                <br>
+                <br>
+                <label for="humid">ความชื้นสัมพัทธ์</label>
+                <br>
+                <input type="text" name="humid" placeholder="% RH;" required="required" />
+                <br>
+                <br>
+                <label for="storage">ปริมาณน้ำในอ่างเก็บน้ำต่อวัน </label>
+                <br>
+                <input type="text" name="storage" placeholder="ล้านลูกบาศก์เมตร " required="required" />
+                <br>
+                <br>
+                <label for="used">ปริมาณน้ำที่ใช้ประโยชน์</label>
+                <br>
+                <input type="text" name="used" placeholder="ล้านลูกบาศก์เมตร " required="required" />
+                <br>
+                <br>
+                <label for="flow">ปริมาณน้ำที่ไหลลงอ่าง</label>
+                <br>
+                <input type="text" name="flow" placeholder="ล้านลูกบาศก์เมตร " required="required" />
+            </div>
+            <div >
+                <button type="submit" class="button" > Predict </button>
+                <button type="reset" class="button" > Reset </button>
+            </div>
+        </form>
+    </div>
+    <h3 class="hh"> Predict is {{ data }} </h3>
+</center>
+
+</body>
+</html>
